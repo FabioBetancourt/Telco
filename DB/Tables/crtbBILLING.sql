@@ -6,22 +6,20 @@ IdManagement: TCGB24
 *****************************************************************************************************************/
 
 
-CREATE TABLE BILLING(
-	ID_BILLING NUMBER PRIMARY KEY NOT NULL,
-	FK_ID_SERVICE_CUSTOMER NUMBER NOT NULL,
-	PAYMENT_STATUS VARCHAR2(50),
+CREATE TABLE APP_DISCOUNT_TELCO.BILLING(
+	ID_BILLING NUMBER NOT NULL,
+	PAYMENT_STATUS VARCHAR2(10),
 	PAYMENT_DATE DATE,
-	VALUE NUMBER(10, 2) NOT NULL,
-	DISCOUNT NUMBER(5, 2) NOT NULL,
-	VALUE_DISCOUNT NUMBER(10, 2) NOT NULL
+	VALUE NUMBER(12,2) NOT NULL,
+	DISCOUNT NUMBER(3),
+	VALUE_DISCOUNT NUMBER(10, 2) NOT NULL,
+	DISCOUNT_END_DATE DATE
 );
 
 
 COMMENT ON TABLE BILLING IS 'Table that records customer payment information';
 
-COMMENT ON COLUMN BILLING.ID_BILLING IS 'id autoincrement to identify a customer billing';
-
-COMMENT ON COLUMN BILLING.FK_ID_SERVICE_CUSTOMER IS 'this is to assign a service-customer with a billing';
+COMMENT ON COLUMN BILLING.ID_BILLING IS 'this is to assign a service-customer with a billing';
 
 COMMENT ON COLUMN BILLING.PAYMENT_STATUS IS 'this is to show a status about payment';
 
@@ -33,11 +31,27 @@ COMMENT ON COLUMN BILLING.DISCOUNT IS 'valuE to show if exist discount or no';
 
 COMMENT ON COLUMN BILLING.VALUE_DISCOUNT IS 'value to show the total, value-discount';
 
+COMMENT ON COLUMN BILLING.DISCOUNT_END_DATE IS 'date that says when the discount ends';
 
-/*  FIRST ALTER TABLE TO ASSIGN DEFAULT VALUE AT PAYMENT_DATE*/
---  DESCRIPTION: ASSIGN DEFAULT DAY LIKE 28 BUT MM AND YYYY IS CURRENT DATE
-ALTER TABLE BILLING MODIFY PAYMENT_DATE DEFAULT TO_DATE(TO_CHAR(SYSDATE, 'MM') || '/28/' || TO_CHAR(SYSDATE, 'YYYY'), 'MM/DD/YYYY');
---  ASSIGN DEFAULT AT DISCOUNT LIKE 0 OR "NO DISCOUNT"
-ALTER TABLE BILLING MODIFY DISCOUNT DEFAULT 0;
 
-ALTER TABLE BILLING MODIFY PAYMENT_DATE DEFAULT
+/************************************************************************************
+    ------------------------------------------------------------------------------------
+    Historial de modificaciones=>
+    Fecha         Orden          Persona                 Acción        
+    ------------------------------------------------------------------------------------
+    15-10-2023    TCGB24         FABIO BETANCOURT        ASSIGN DEFAULT AT DISCOUNT LIKE 0  
+    
+    *************************************************************************************/
+ALTER TABLE APP_DISCOUNT_TELCO.BILLING MODIFY DISCOUNT DEFAULT 0;
+
+/************************************************************************************
+    ------------------------------------------------------------------------------------
+    Historial de modificaciones=>
+    Fecha         Orden          Persona                 Acción        
+    ------------------------------------------------------------------------------------
+    15-10-2023    TCGB24         FABIO BETANCOURT        DELETE UNECESARY ATTRIBUTES      
+    
+    *************************************************************************************/
+ALTER TABLE APP_DISCOUNT_TELCO.BILLING DROP COLUMN PAYMENT_STATUS;
+ALTER TABLE APP_DISCOUNT_TELCO.BILLING DROP COLUMN PAYMENT_DATE;
+
