@@ -1,6 +1,7 @@
 package com.PortalTelco.repository;
 
 import com.PortalTelco.dto.CustomerDTOSQL;
+
 import java.sql.Types;
 import java.util.Collections;
 import java.util.Map;
@@ -19,9 +20,10 @@ public class CustomerRepository {
 
 
     SimpleJdbcCall addCustomerCall;
+    SimpleJdbcCall getCustomerCall;
 
 
-    CustomerRepository(JdbcTemplate jdbcTemplate){
+    public CustomerRepository(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
         this.addCustomerCall = new SimpleJdbcCall(jdbcTemplate)
                 .withSchemaName("APP_DISCOUNT_TELCO")
@@ -33,9 +35,18 @@ public class CustomerRepository {
     }
 
     public void addCustomer(final CustomerDTOSQL customerDTOSQL) {
-        Map in = Collections.singletonMap("iCustomer", customerDTOSQL);
+        Map<String, CustomerDTOSQL> in = Collections.singletonMap("iCustomer", customerDTOSQL);
         addCustomerCall.executeObject(CustomerDTOSQL.class, in);
     }
+
+    /*
+    public CustomerDTOSQL getCustomerById(Long id) {
+        Map<String, Object> in = Collections.singletonMap("p_id", id);
+        Map<String, Object> out = getCustomerCall.execute(in);
+        return (CustomerDTOSQL) out.get("p_customer");
+    }
+     */
+
 
 
 }

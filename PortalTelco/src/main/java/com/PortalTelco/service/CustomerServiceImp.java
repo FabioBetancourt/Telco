@@ -25,4 +25,11 @@ public class CustomerServiceImp implements CustomerService{
     public void createCustomer(CustomerDTOSQL customerDTOSQL) {
         customerRepository.addCustomer(customerDTOSQL);
     }
+
+    /*
+    @Override
+    public CustomerDTOSQL getCustomerById(Long id) {
+        return customerRepository.getCustomerById(id);
+    }
+     */
 }

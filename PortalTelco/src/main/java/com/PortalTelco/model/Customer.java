@@ -1,6 +1,5 @@
 package com.PortalTelco.model;
 
-import com.PortalTelco.dto.CustomerDTOSQL;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

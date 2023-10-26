@@ -5,10 +5,7 @@ import com.PortalTelco.repository.CustomerRepository;
 import com.PortalTelco.service.CustomerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("customer")
@@ -34,4 +31,13 @@ public class CustomerController {
                     .body("Halgo salio mal, Error ocurrido: " + e);
         }
     }
+
+    /*
+    @GetMapping("/{id}")
+    public CustomerDTOSQL getCustomerById(@PathVariable("id") Long id) {
+        return customerRepository.getCustomerById(id);
+    }
+
+     */
+
 }
