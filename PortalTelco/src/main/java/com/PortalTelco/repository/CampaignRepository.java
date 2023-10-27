@@ -1,7 +1,6 @@
 package com.PortalTelco.repository;
 
 import com.PortalTelco.dto.CampaignDTOSQL;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
@@ -14,9 +13,7 @@ import java.util.Map;
 @Repository
 public class CampaignRepository {
 
-    @Autowired
     JdbcTemplate jdbcTemplate;
-
     SimpleJdbcCall addCampaignCall;
 
 

@@ -1,43 +1,55 @@
 package com.PortalTelco.controller;
 
 import com.PortalTelco.dto.CustomerDTOSQL;
-import com.PortalTelco.repository.CustomerRepository;
+import com.PortalTelco.model.Customer;
 import com.PortalTelco.service.CustomerService;
-import org.springframework.http.HttpStatus;
+import com.PortalTelco.service.CustomerServiceImp;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("customer")
 //@CrossOrigin(origins = "*")
 public class CustomerController {
 
-    private final CustomerRepository customerRepository;
 
-    public CustomerController(CustomerService customerService, CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
+    private final CustomerService CustomerService;
+
+    public CustomerController(CustomerServiceImp customerServiceImp) {
+        this.CustomerService = customerServiceImp;
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<String> create(@RequestBody CustomerDTOSQL customerDTOSQL) {
-         try {
-            customerRepository.addCustomer(customerDTOSQL);
-            return ResponseEntity.status(HttpStatus.CREATED)
-                    .body("El cliente: " + customerDTOSQL.getFirstName() + " con numero de documento: " +
-                            customerDTOSQL.getDocument() + " ha sido creado exitosamente");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Halgo salio mal, Error ocurrido: " + e);
+        return CustomerService.createCustomer(customerDTOSQL);
+    }
+
+    @GetMapping("/find-by-id/{id}")
+    public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) {
+        return CustomerService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/find-by-document/{document}")
+    public ResponseEntity<List<Customer>> getCustomerByDocument(@PathVariable Long document) {
+        List<Customer> customers = CustomerService.findByDocument(document);
+        if(customers.isEmpty()) {
+            return ResponseEntity.notFound().build();
         }
+            return ResponseEntity.ok(customers);
     }
 
-    /*
-    @GetMapping("/{id}")
-    public CustomerDTOSQL getCustomerById(@PathVariable("id") Long id) {
-        return customerRepository.getCustomerById(id);
+    @PutMapping("/edit-customer/{id}")
+    public ResponseEntity<Customer> updateCustomer(@PathVariable(value = "id") Long customerId,
+                                                   @RequestBody Customer customerDetails) {
+        Optional<Customer> updatedCustomer = CustomerService.updateCustomer(customerId, customerDetails);
+        return updatedCustomer.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-     */
 
 }

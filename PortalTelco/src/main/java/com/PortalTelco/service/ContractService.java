@@ -1,9 +1,11 @@
 package com.PortalTelco.service;
 
 import com.PortalTelco.dto.ContractDTOSQL;
+import org.springframework.http.ResponseEntity;
 
 
 
 public interface ContractService {
-    void CreateContract(ContractDTOSQL contractDTOSQL);
+
+    ResponseEntity<String> createContract(ContractDTOSQL contractDTOSQL);
 }
