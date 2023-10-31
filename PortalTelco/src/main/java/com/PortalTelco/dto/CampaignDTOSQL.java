@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class CampaignDTOSQL extends CampaignDTO implements SQLData {
     @Override
-    public String getSQLTypeName() throws SQLException {
+    public String getSQLTypeName() {
         return "TYRC_CAMPAIGN";
     }
 

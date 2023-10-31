@@ -1,0 +1,70 @@
+<div class="center-container">
+    <form [formGroup]="customerForm" (ngSubmit)="onSubmit()" class="p-fluid" [style]="{ width: '360px'}">
+        <label for="html"><h1>REGISTRAR CLIENTE</h1></label> <br>
+        <!-- Campo: Numero de Documento -->
+        <div class="p-field">
+            <label for="document">Documento</label>
+            <input type="number" id="document" pInputText formControlName="document"
+                placeholder="Ingrese su numero de documento">
+            <small *ngIf="customerForm.get('document')?.invalid && customerForm.get('document')?.touched"
+                class="p-error">Este campo es obligatorio.</small>
+                <small *ngIf="customerForm.get('document')?.errors?.['pattern'] && customerForm.get('document')?.touched"
+                class="p-error">Por favor, ingrese solo números sin símbolos o espacios.</small>
+        </div>
+        <br>
+        <!-- Campo: Nombre -->
+        <div class="p-field">
+            <label for="firstName">Nombre</label>
+            <input id="firstName" pInputText formControlName="firstName" placeholder="Ingrese su Nombre">
+            <small *ngIf="customerForm.get('firstName')?.invalid && customerForm.get('firstName')?.touched"
+                class="p-error">Este campo es obligatorio.</small>
+        </div>
+        <br>
+        <!-- Campo: Apellido -->
+        <div class="p-field">
+            <label for="lastName">Apellido</label>
+            <input id="lastName" pInputText formControlName="lastName" placeholder="Ingrese su Apellido">
+            <small *ngIf="customerForm.get('lastName')?.invalid && customerForm.get('lastName')?.touched"
+                class="p-error">Este campo es obligatorio.</small>
+        </div>
+        <br>
+        <!-- Campo: Correo Electronico -->
+        <div class="p-field">
+            <label for="email">Correo</label>
+            <input id="email" pInputText formControlName="email" placeholder="Ingrese su correo Electronico">
+            <small *ngIf="customerForm.get('email')?.errors?.['required'] && customerForm.get('email')?.touched"
+                class="p-error">Este campo es obligatorio.</small>
+            <small *ngIf="customerForm.get('email')?.errors?.['email']" class="p-error">Ingrese un correo electrónico
+                válido.</small>
+        </div>
+        <br>
+        <!-- Campo: Numero de telefono -->
+        <div class="p-field">
+            <label for="phoneNumber">Celular</label>
+            <input id="phoneNumber" pInputText formControlName="phoneNumber"
+                placeholder="Ingrese su numero de telefono">
+            <small
+                *ngIf="customerForm.get('phoneNumber')?.errors?.['required'] && customerForm.get('phoneNumber')?.touched"
+                class="p-error">Este campo es obligatorio.</small>
+        </div>
+        <br>
+        <!-- Campo: Direccion fisica -->
+        <div class="p-field">
+            <label for="address">Direccion</label>
+            <input id="address" pInputText formControlName="address" placeholder="Ingrese la direccion de vivienda">
+            <small *ngIf="customerForm.get('address')?.invalid && customerForm.get('address')?.touched"
+                class="p-error">Este campo es obligatorio.</small>
+        </div>
+        <br>
+        <!-- Botones -->
+        <button type="submit" pButton label="Crear" class="p-button-danger"></button>
+        <br><br>
+        <button type="reset" pButton label="Cancelar" class="p-button-secondary"></button>
+    </form>
+</div>
+
+
+<div class="right-container" *ngIf="showMessage">
+    <p-messages [(value)]="messages" [enableService]="true" [closable]="true">
+    </p-messages>
+</div>

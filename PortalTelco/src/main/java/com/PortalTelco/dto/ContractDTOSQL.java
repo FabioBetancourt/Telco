@@ -7,7 +7,7 @@ import java.sql.SQLOutput;
 
 public class ContractDTOSQL extends ContractDTO implements SQLData {
     @Override
-    public String getSQLTypeName() throws SQLException {
+    public String getSQLTypeName() {
         return "TYRC_CUSTOMER_SERVICES";
     }
 
