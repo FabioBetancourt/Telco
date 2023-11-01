@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { CardModule } from 'primeng/card';
@@ -15,7 +15,9 @@ import { MessagesModule } from 'primeng/messages';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MenubarModule } from 'primeng/menubar';
-
+import { CustomerListComponent } from './components/customer-list/customer-list.component';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { MenubarModule } from 'primeng/menubar';
     CustomersComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CustomerListComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,10 @@ import { MenubarModule } from 'primeng/menubar';
     InputTextModule,
     CardModule,
     MessagesModule,
-    MenubarModule
+    MenubarModule,
+    RadioButtonModule,
+    FormsModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

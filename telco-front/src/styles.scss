@@ -3,7 +3,6 @@
 @import "~primeng/resources/primeng.min.css";
 @import "~primeicons/primeicons.css";
 * {
-    margin: 0;
     box-sizing: border-box;
   }
 
@@ -22,4 +21,11 @@ body {
 
 app-footer {
     margin-top: auto;
+}
+
+.div-center {
+    display: flex;
+    justify-content: center; /* Alinea horizontalmente al centro */
+    align-items: center; /* Alinea verticalmente al centro */
+    width: 100%; /* Ocupa todo el ancho de la tarjeta */
 }

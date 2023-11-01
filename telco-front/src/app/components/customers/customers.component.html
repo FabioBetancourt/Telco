@@ -57,7 +57,7 @@
         </div>
         <br>
         <!-- Botones -->
-        <button type="submit" pButton label="Crear" class="p-button-danger"></button>
+        <button type="submit" pButton [label]="isEditing ? 'Editar' : 'Crear'" class="p-button-danger"></button>
         <br><br>
         <button type="reset" pButton label="Cancelar" class="p-button-secondary"></button>
     </form>

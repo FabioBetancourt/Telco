@@ -3,13 +3,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* O usa una altura fija si prefieres */
+    min-height: 100vh; 
   }
 
   .right-container {
     display: flex;
     justify-content: right;
-    position: fixed;    /* Esto hará que el mensaje quede fijo en la ventana del navegador */
-    top: 10px;          /* Distancia desde el borde superior */
-    right: 30px;        /* Distancia desde el borde derecho */
+    position: fixed;    
+    top: 10px;          
+    right: 30px;      
 }
