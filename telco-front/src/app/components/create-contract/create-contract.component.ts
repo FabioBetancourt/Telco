@@ -39,7 +39,6 @@ export class CreateContractComponent implements OnInit {
         label: `${service.serviceName} ${new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'COP' }).format(service.price)}`,
         value: service.idService, 
       }));
-      console.log(this.nodes)
     });
     const idCustomer = this.route.snapshot.paramMap.get('id');
     if (idCustomer) {
@@ -47,11 +46,12 @@ export class CreateContractComponent implements OnInit {
     }
   }
 
+  //problems with the message notification when the user have a same services to contract
   onSubmit() {
     if (this.contractForm.valid) {
       const formData = {
         fkIdCustomer: this.contractForm.get('fkIdCustomer')?.value,
-        fkIdService: this.contractForm.get('fkIdService')?.value.value // Aquí obtenemos el valor de la propiedad "value" dentro del objeto
+        fkIdService: this.contractForm.get('fkIdService')?.value.value 
       };
       this.createContract(formData);
       this.showMessage = false;
@@ -66,8 +66,7 @@ export class CreateContractComponent implements OnInit {
 
   createContract(data: Contract) {
     this.contractService.createContract(data).subscribe({
-      next: (response) => {
-        console.log('Contract created!', response);
+      next: () => {
         this.showCompleteMessage(
           'success',
           'Éxito!',
@@ -75,8 +74,7 @@ export class CreateContractComponent implements OnInit {
         );
         this.contractForm.reset();
       },
-      error: (err) => {
-        console.error('Error creating a contrat', err);
+      error: () => {
         this.showCompleteMessage(
           'error',
           'Algo Falló!',

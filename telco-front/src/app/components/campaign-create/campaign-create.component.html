@@ -1,0 +1,75 @@
+<div class="center-container">
+    <form [formGroup]="campaignForm" (ngSubmit)="onSubmit()" class="p-fluid" [style]="{ width: '360px'}">
+        <div class="div-center">
+            <label for="html">
+                <h1>CAMPAÑAS</h1>
+            </label>
+        </div>
+        <!-- INPUT: numberOfServices -->
+        <div class="p-field">
+            <label for="numberOfServices">Numero de Servicios</label>
+            <input type="number" id="numberOfServices" pInputText formControlName="numberOfServices"
+                placeholder="Ingrese cuantos servicios debe poseer">
+            <small
+                *ngIf="campaignForm.get('numberOfServices')?.invalid && campaignForm.get('numberOfServices')?.touched"
+                class="p-error">Este campo es obligatorio.</small>
+            <small
+                *ngIf="campaignForm.get('numberOfServices')?.errors?.['pattern'] && campaignForm.get('numberOfServices')?.touched"
+                class="p-error">Por favor, ingrese solo números sin símbolos o espacios.</small>
+        </div>
+        <br>
+        <!-- INPUT: customerSeniority -->
+        <div class="p-field">
+            <label for="customerSeniority">Tiempo en la compañia</label>
+            <input type="number" id="customerSeniority" pInputText formControlName="customerSeniority"
+                placeholder="Tiempo minimo en la compañia en años">
+            <small
+                *ngIf="campaignForm.get('customerSeniority')?.invalid && campaignForm.get('customerSeniority')?.touched"
+                class="p-error">Este campo es obligatorio.</small>
+            <small
+                *ngIf="campaignForm.get('customerSeniority')?.errors?.['pattern'] && campaignForm.get('customerSeniority')?.touched"
+                class="p-error">Por favor, ingrese solo números sin símbolos o espacios.</small>
+        </div>
+        <br>
+        <!-- INPUT: discount -->
+        <div class="p-field">
+            <label for="discount">Descuento</label>
+            <input type="number" id="discount" pInputText formControlName="discount"
+                placeholder="Ingrese descuento a brindar Ej: 10/20">
+            <small *ngIf="campaignForm.get('discount')?.invalid && campaignForm.get('discount')?.touched"
+                class="p-error">Este campo es obligatorio.</small>
+            <small *ngIf="campaignForm.get('discount')?.errors?.['pattern'] && campaignForm.get('discount')?.touched"
+                class="p-error">Por favor, ingrese solo números sin símbolos o espacios.</small>
+        </div>
+        <br>
+        <!-- INPUT: discountStartDate -->
+        <div class="card flex justify-content-center">
+            <label for="discountStartDate">Fecha de inicio de campaña</label>
+            <p-calendar id="discountStartDate" formControlName="discountStartDate" [showIcon]="true"></p-calendar>
+            <small
+                *ngIf="campaignForm.get('discountStartDate')?.errors?.['required'] && campaignForm.get('discountStartDate')?.touched"
+                class="p-error">Este campo es obligatorio.</small>
+        </div>
+        <br>
+        <!-- INPUT: discountEndDate -->
+        <div class="card flex justify-content-center">
+            <label for="discountEndDate">Fecha fin de campaña</label>
+            <p-calendar id="discountEndDate" formControlName="discountEndDate" [showIcon]="true"></p-calendar>
+            <small
+                *ngIf="campaignForm.get('discountEndDate')?.errors?.['required'] && campaignForm.get('discountEndDate')?.touched"
+                class="p-error">Este campo es obligatorio.</small>
+        </div>
+
+        <br>
+        <!-- Buttons -->
+        <button type="submit" pButton [label]="isEditing ? 'Editar' : 'Crear'" class="p-button-danger"></button>
+        <br><br>
+        <button type="reset" pButton label="Cancelar" class="p-button-secondary" routerLink="/home"></button>
+    </form>
+</div>
+
+
+<div class="right-container" *ngIf="showMessage">
+    <p-messages [(value)]="messages" [enableService]="true" [closable]="true">
+    </p-messages>
+</div>

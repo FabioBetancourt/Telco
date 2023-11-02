@@ -57,15 +57,13 @@ export class HeaderComponent implements OnInit {
           {
             label: 'Nueva',
             icon: 'pi pi-fw pi-calendar-plus',
+            routerLink: '/campaign/create'
           },
           {
             label: 'Obtener',
             icon: 'pi pi-fw pi-calendar',
-          },
-          {
-            label: 'Editar',
-            icon: 'pi pi-fw pi-pencil',
-          },
+            routerLink: '/campaign/list'
+          }
         ],
       },
       {

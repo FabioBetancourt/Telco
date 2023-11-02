@@ -20,6 +20,11 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { TableModule } from 'primeng/table';
 import { CreateContractComponent } from './components/create-contract/create-contract.component';
 import {TreeSelectModule} from 'primeng/treeselect';
+import { CampaignCreateComponent } from './components/campaign-create/campaign-create.component';
+import { CalendarModule } from 'primeng/calendar';
+import { CampaignListComponent } from './components/campaign-list/campaign-list.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { BillingListComponent } from './components/billing-list/billing-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,10 @@ import {TreeSelectModule} from 'primeng/treeselect';
     HeaderComponent,
     FooterComponent,
     CustomerListComponent,
-    CreateContractComponent
+    CreateContractComponent,
+    CampaignCreateComponent,
+    CampaignListComponent,
+    BillingListComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,9 @@ import {TreeSelectModule} from 'primeng/treeselect';
     RadioButtonModule,
     FormsModule,
     TableModule,
-    TreeSelectModule
+    TreeSelectModule,
+    CalendarModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

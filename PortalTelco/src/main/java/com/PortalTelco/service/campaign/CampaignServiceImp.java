@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -40,11 +41,18 @@ public class CampaignServiceImp implements CampaignService{
         }
     }
 
-    /*******************************************JPA***********************************************/
     @Override
     public Optional<Campaign> getCampaignById(Long id) {
         return campaignRepositoryInterfaceJPA.findById(id);
     }
+
+
+    /*******************************************JPA***********************************************/
+    @Override
+    public List<Campaign> getCampaignByStatus(String status) {
+        return campaignRepositoryInterfaceJPA.findByStatus(status);
+    }
+
 
     @Override
     public Optional<Campaign> editCampaign(Long id, Campaign campaignDetails) {
