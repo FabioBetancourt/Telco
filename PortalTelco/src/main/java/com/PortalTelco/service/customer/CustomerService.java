@@ -1,4 +1,4 @@
-package com.PortalTelco.service;
+package com.PortalTelco.service.customer;
 
 import com.PortalTelco.dto.CustomerDTOSQL;
 import com.PortalTelco.model.Customer;

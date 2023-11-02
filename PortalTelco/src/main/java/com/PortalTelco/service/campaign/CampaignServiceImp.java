@@ -1,9 +1,9 @@
-package com.PortalTelco.service;
+package com.PortalTelco.service.campaign;
 
 import com.PortalTelco.dto.CampaignDTOSQL;
 import com.PortalTelco.model.Campaign;
-import com.PortalTelco.repository.CampaignRepository;
-import com.PortalTelco.repository.CampaignRepositoryInterfaceJPA;
+import com.PortalTelco.repository.campaign.CampaignRepository;
+import com.PortalTelco.repository.campaign.CampaignRepositoryInterfaceJPA;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

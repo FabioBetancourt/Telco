@@ -1,4 +1,4 @@
-package com.PortalTelco.repository;
+package com.PortalTelco.repository.campaign;
 
 import com.PortalTelco.model.Campaign;
 import org.springframework.data.jpa.repository.JpaRepository;

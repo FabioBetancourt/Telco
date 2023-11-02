@@ -1,4 +1,4 @@
-package com.PortalTelco.service;
+package com.PortalTelco.service.campaign;
 
 import com.PortalTelco.dto.CampaignDTOSQL;
 import com.PortalTelco.model.Campaign;

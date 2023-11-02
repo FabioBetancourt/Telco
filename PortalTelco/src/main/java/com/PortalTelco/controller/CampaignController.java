@@ -2,7 +2,7 @@ package com.PortalTelco.controller;
 
 import com.PortalTelco.dto.CampaignDTOSQL;
 import com.PortalTelco.model.Campaign;
-import com.PortalTelco.service.CampaignService;
+import com.PortalTelco.service.campaign.CampaignService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -18,6 +18,8 @@ import { MenubarModule } from 'primeng/menubar';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { TableModule } from 'primeng/table';
+import { CreateContractComponent } from './components/create-contract/create-contract.component';
+import {TreeSelectModule} from 'primeng/treeselect';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { TableModule } from 'primeng/table';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    CreateContractComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { TableModule } from 'primeng/table';
     MenubarModule,
     RadioButtonModule,
     FormsModule,
-    TableModule
+    TableModule,
+    TreeSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-package com.PortalTelco.repository;
+package com.PortalTelco.repository.campaign;
 
 import com.PortalTelco.dto.CampaignDTOSQL;
 import org.springframework.jdbc.core.JdbcTemplate;

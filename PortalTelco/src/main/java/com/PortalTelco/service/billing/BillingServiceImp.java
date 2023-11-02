@@ -1,7 +1,7 @@
-package com.PortalTelco.service;
+package com.PortalTelco.service.billing;
 
 import com.PortalTelco.model.Billing;
-import com.PortalTelco.repository.BillingRepositoryInterfaceJPA;
+import com.PortalTelco.repository.billing.BillingRepositoryInterfaceJPA;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

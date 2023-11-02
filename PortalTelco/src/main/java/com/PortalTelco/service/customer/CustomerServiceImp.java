@@ -1,9 +1,9 @@
-package com.PortalTelco.service;
+package com.PortalTelco.service.customer;
 
 import com.PortalTelco.dto.CustomerDTOSQL;
 import com.PortalTelco.model.Customer;
-import com.PortalTelco.repository.CustomerRepository;
-import com.PortalTelco.repository.CustomerRepositoryInterfaceJPA;
+import com.PortalTelco.repository.customer.CustomerRepository;
+import com.PortalTelco.repository.customer.CustomerRepositoryInterfaceJPA;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

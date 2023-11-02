@@ -1,4 +1,4 @@
-package com.PortalTelco.repository;
+package com.PortalTelco.repository.billing;
 
 import com.PortalTelco.model.Billing;
 import org.springframework.data.jpa.repository.JpaRepository;

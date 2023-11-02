@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
       {
         label: 'Inicio',
         icon: 'pi pi-fw pi-home ',
-        routerLink: '/',
+        routerLink: '/home',
       },
       {
         label: 'Clientes',
@@ -39,6 +39,7 @@ export class HeaderComponent implements OnInit {
           {
             label: 'Nuevo',
             icon: 'pi pi-fw pi-plus',
+            routerLink: '/contract/create/id'
           },
           {
             separator: true,

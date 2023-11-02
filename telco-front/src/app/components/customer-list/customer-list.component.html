@@ -47,8 +47,8 @@
             <td>{{ customer.address }}</td>
             <td>
                 <div class="div-center">
-                    <p-button label="Contratar Plan" severity="secondary" [rounded]="true" [raised]="true"
-                        size="small" ></p-button>
+                    <p-button label="Contratar Plan" severity="secondary" [rounded]="true" [raised]="true" size="small"
+                        [routerLink]="['/contract/create', customer.idCustomer]"></p-button>
                 </div>
                 <br>
                 <div class="div-center">
@@ -57,8 +57,8 @@
                 </div>
                 <br>
                 <div class="div-center">
-                    <p-button label="Editar" severity="secondary" [rounded]="true" [raised]="true"
-                        size="small" [routerLink]="['/customer/edit-customer', customer.idCustomer]"></p-button>
+                    <p-button label="Editar" severity="secondary" [rounded]="true" [raised]="true" size="small"
+                        [routerLink]="['/customer/edit-customer', customer.idCustomer]"></p-button>
                 </div>
             </td>
         </tr>

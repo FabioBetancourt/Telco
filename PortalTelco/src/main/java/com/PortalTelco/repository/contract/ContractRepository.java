@@ -1,4 +1,4 @@
-package com.PortalTelco.repository;
+package com.PortalTelco.repository.contract;
 
 import com.PortalTelco.dto.CampaignDTOSQL;
 import com.PortalTelco.dto.ContractDTOSQL;

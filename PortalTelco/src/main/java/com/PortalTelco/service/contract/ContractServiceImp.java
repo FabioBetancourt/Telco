@@ -1,7 +1,7 @@
-package com.PortalTelco.service;
+package com.PortalTelco.service.contract;
 
 import com.PortalTelco.dto.ContractDTOSQL;
-import com.PortalTelco.repository.ContractRepository;
+import com.PortalTelco.repository.contract.ContractRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

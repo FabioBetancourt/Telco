@@ -2,8 +2,8 @@ package com.PortalTelco.controller;
 
 import com.PortalTelco.dto.CustomerDTOSQL;
 import com.PortalTelco.model.Customer;
-import com.PortalTelco.service.CustomerService;
-import com.PortalTelco.service.CustomerServiceImp;
+import com.PortalTelco.service.customer.CustomerService;
+import com.PortalTelco.service.customer.CustomerServiceImp;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

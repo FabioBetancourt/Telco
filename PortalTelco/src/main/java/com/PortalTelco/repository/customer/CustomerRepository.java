@@ -1,4 +1,4 @@
-package com.PortalTelco.repository;
+package com.PortalTelco.repository.customer;
 
 import com.PortalTelco.dto.CustomerDTOSQL;
 

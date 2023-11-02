@@ -1,4 +1,4 @@
-package com.PortalTelco.service;
+package com.PortalTelco.service.billing;
 
 import com.PortalTelco.model.Billing;
 
