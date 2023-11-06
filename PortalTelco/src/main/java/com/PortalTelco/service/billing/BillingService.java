@@ -7,4 +7,5 @@ import java.util.List;
 public interface BillingService {
 
     public List<Billing> getBillingsByCustomerId(Long fkIdCustomer);
+    List<Billing> findCustomersWithDiscount();
 }

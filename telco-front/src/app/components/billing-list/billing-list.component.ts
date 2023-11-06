@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Message } from 'primeng/api';
 import { Billing } from 'src/app/model/billing.model';
+import { BillingService } from 'src/app/service/billing.service';
 
 @Component({
   selector: 'app-billing-list',
@@ -18,7 +19,7 @@ export class BillingListComponent {
   showMessage: boolean = false;
 
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {
+  constructor(private http: HttpClient, private route: ActivatedRoute, private billingService:BillingService) {
     this.route.paramMap.subscribe(params => {
       this.inputValue = params.get('id');
       if (this.inputValue) {
@@ -55,13 +56,23 @@ export class BillingListComponent {
       });
     } else {
       this.showCompleteMessage(
-        'info',
+        'info', 
         'Error',
         'Ingrese un ID válido para buscar.'
       );
     }
   }
   
+  exportCustomers() {
+    this.billingService.exportCustomers().subscribe(blob => {
+      const a = document.createElement('a')
+      const objectUrl = URL.createObjectURL(blob)
+      a.href = objectUrl
+      a.download = 'customers.txt';
+      a.click();
+      URL.revokeObjectURL(objectUrl);
+    });
+  }
 
   showCompleteMessage(
     type: 'success' | 'error' | 'info',

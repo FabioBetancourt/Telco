@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
           {
             label: 'Nuevo',
             icon: 'pi pi-fw pi-plus',
-            routerLink: '/contract/create/id'
+            routerLink: '/contract/create/id',
           },
           {
             separator: true,
@@ -57,19 +57,25 @@ export class HeaderComponent implements OnInit {
           {
             label: 'Nueva',
             icon: 'pi pi-fw pi-calendar-plus',
-            routerLink: '/campaign/create'
+            routerLink: '/campaign/create',
           },
           {
             label: 'Obtener',
             icon: 'pi pi-fw pi-calendar',
-            routerLink: '/campaign/list'
-          }
+            routerLink: '/campaign/list',
+          },
         ],
       },
       {
         label: 'Facturas',
         icon: 'pi pi-fw pi-book',
-        routerLink: '/billings'
+        items: [
+          {
+            label: 'Buscar',
+            icon: 'pi pi-fw pi pi-search',
+            routerLink: '/billings',
+          },
+        ],
       },
       {
         label: 'Quit',

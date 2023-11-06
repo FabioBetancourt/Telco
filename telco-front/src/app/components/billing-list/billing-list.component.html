@@ -1,10 +1,16 @@
 <div class="center-container-grid">
-    <p-card [style]="{ width: '310px'}">
-        <span class="p-input-icon-left">
-            <i class="pi pi-search"></i>
-            <input type="text" pInputText [(ngModel)]="inputValue" placeholder="Ingrese el id del cliente" />
-        </span>
-        <br>
+    <p-card [style]="{ width: '360px'}">
+        <div class="div-center">
+            <label for="html">
+                <h1>Reporte individual</h1>
+            </label>
+        </div>
+        <div class="div-center">
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input type="text" pInputText [(ngModel)]="inputValue" placeholder="Ingrese el id del cliente" />
+            </span>
+        </div>
         <br>
         <div class="div-center">
             <p-button label="Buscar" (click)="search()" severity="danger"></p-button>
@@ -20,7 +26,7 @@
             <th>ID Factura</th>
             <th>Valor</th>
             <th>Descuento</th>
-            <th>Valor con descuento</th>
+            <th>Valor Total</th>
             <th>Fecha fin del descuento</th>
         </tr>
     </ng-template>
@@ -40,6 +46,13 @@
     </p-messages>
 </div>
 
-<div class="content">
-    <!-- Todo tu contenido principal aquí, excepto el pie de página -->
+<br><br>
+<div class="div-center">
+    <label for="html">
+        <h1>Reporte General de clientes con descuento</h1>
+    </label>
 </div>
+<div class="div-center">
+    <p-button label="Generar Reporte total de clientes" (click)="exportCustomers()" severity="danger"></p-button>
+</div>
+<br><br><br><br>

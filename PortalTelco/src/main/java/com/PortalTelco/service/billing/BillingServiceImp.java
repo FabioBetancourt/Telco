@@ -4,6 +4,7 @@ import com.PortalTelco.model.Billing;
 import com.PortalTelco.repository.billing.BillingRepositoryInterfaceJPA;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -17,5 +18,9 @@ public class BillingServiceImp implements BillingService{
     @Override
     public List<Billing> getBillingsByCustomerId(Long fkIdCustomer) {
         return billingRepositoryInterfaceJPA.findBillingsByFkIdCustomer(fkIdCustomer);
+    }
+
+    public List<Billing> findCustomersWithDiscount() {
+        return billingRepositoryInterfaceJPA.findByDiscountNotZero();
     }
 }

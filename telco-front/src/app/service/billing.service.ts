@@ -17,4 +17,7 @@ export class BillingService {
     return this.httpClient.get<Billing>(url);
   }
 
+  exportCustomers(): Observable<Blob> {
+    return this.httpClient.get(`${this.baseUrl}/export`, { responseType: 'blob' });
+  }
 }

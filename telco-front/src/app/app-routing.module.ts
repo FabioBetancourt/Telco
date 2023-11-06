@@ -20,7 +20,8 @@ const routes: Routes = [
   {path: 'campaign/edit-campaign/:id', component: CampaignCreateComponent},
   {path: 'campaign/list', component: CampaignListComponent},
   { path: 'billings', component: BillingListComponent },
-  {path: 'billings/:id', component: BillingListComponent}
+  {path: 'billings/:id', component: BillingListComponent},
+  { path: 'document/export', component: BillingListComponent },
 ];
 
 @NgModule({
