@@ -69,6 +69,7 @@ export class HeaderComponent implements OnInit {
       {
         label: 'Facturas',
         icon: 'pi pi-fw pi-book',
+        routerLink: '/billings'
       },
       {
         label: 'Quit',

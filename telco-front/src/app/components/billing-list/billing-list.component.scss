@@ -1,0 +1,18 @@
+.center-container-grid {
+    display: grid;
+    place-items: center;
+    height: 50vh; /* Ajusta al 100% del alto de la ventana */
+}
+
+.spacing-label {
+    margin-right: 120px; /* Ajusta este valor según la separación que desees */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    min-height: 26.5vh;
+    flex: 1;
+}
+
+

@@ -14,9 +14,8 @@ public class BillingServiceImp implements BillingService{
     public BillingServiceImp(BillingRepositoryInterfaceJPA billingRepositoryInterfaceJPA) {
         this.billingRepositoryInterfaceJPA = billingRepositoryInterfaceJPA;
     }
-
     @Override
-    public List<Billing> findByIdBilling(Long id) {
-        return billingRepositoryInterfaceJPA.getByIdBilling(id);
+    public List<Billing> getBillingsByCustomerId(Long fkIdCustomer) {
+        return billingRepositoryInterfaceJPA.findBillingsByFkIdCustomer(fkIdCustomer);
     }
 }

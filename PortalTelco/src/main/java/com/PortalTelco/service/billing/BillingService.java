@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface BillingService {
 
-    List<Billing> findByIdBilling (Long id);
+    public List<Billing> getBillingsByCustomerId(Long fkIdCustomer);
 }
