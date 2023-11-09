@@ -1,0 +1,30 @@
+<br><br><br>
+
+<div class="div-center">
+    <h1>Insercion de cliente por archivo</h1>
+</div>
+
+<div class="div-center">
+
+    <div class="card flex justify-content-center">
+
+        <div class="div-center">
+            <p-fileUpload mode="basic" chooseLabel="Buscar" type="file" (change)="onFileSelect($event)" />
+        </div>
+        <br>
+
+        <div class="div-center">
+            <p-button (click)="upload()" severity="danger" label="Subir Clientes"></p-button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="right-container" *ngIf="showMessage">
+    <p-messages [(value)]="messages" [enableService]="true" [closable]="true">
+    </p-messages>
+</div>
+
+<div class="content"></div>

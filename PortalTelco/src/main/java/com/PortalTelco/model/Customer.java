@@ -18,6 +18,8 @@ public class Customer {
 
     @Id
     @Column(name = "ID_CUSTOMER")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq")
+    @SequenceGenerator(name = "customer_seq", sequenceName = "SEQ_ID_CUSTOMER", allocationSize = 1)
     private Long idCustomer;
 
     @Column(name = "DOCUMENT")

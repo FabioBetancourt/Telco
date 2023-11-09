@@ -26,8 +26,7 @@ export class BillingListComponent {
         this.search();
       }
     });
-  }
-  
+  }  
 
   search() {
     let baseUrl = 'http://localhost:8080/billings/';
@@ -67,8 +66,12 @@ export class BillingListComponent {
     this.billingService.exportCustomers().subscribe(blob => {
       const a = document.createElement('a')
       const objectUrl = URL.createObjectURL(blob)
+
+      const date = new Date();
+      const dateString = date.toISOString().split('T')[0];
+
       a.href = objectUrl
-      a.download = 'customers.txt';
+      a.download = `clientes-con-descuento-${dateString}.xlsx`;
       a.click();
       URL.revokeObjectURL(objectUrl);
     });

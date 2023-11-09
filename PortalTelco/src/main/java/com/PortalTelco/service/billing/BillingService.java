@@ -8,4 +8,5 @@ public interface BillingService {
 
     public List<Billing> getBillingsByCustomerId(Long fkIdCustomer);
     List<Billing> findCustomersWithDiscount();
+    byte[] createExcelFile(List<Billing> billings);
 }

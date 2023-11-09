@@ -41,13 +41,6 @@ export class HeaderComponent implements OnInit {
             icon: 'pi pi-fw pi-plus',
             routerLink: '/contract/create/id',
           },
-          {
-            separator: true,
-          },
-          {
-            label: 'Export',
-            icon: 'pi pi-fw pi-external-link',
-          },
         ],
       },
       {
@@ -78,9 +71,9 @@ export class HeaderComponent implements OnInit {
         ],
       },
       {
-        label: 'Quit',
-        icon: 'pi pi-fw pi-power-off',
-        routerLink: 'home',
+        label: 'Archivos',
+        icon: 'pi pi-fw pi-file-import',
+        routerLink: '/files/upload',
       },
     ];
   }

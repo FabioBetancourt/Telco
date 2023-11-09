@@ -5,7 +5,5 @@ import com.PortalTelco.model.Services;
 import java.util.List;
 
 public interface ServicesService {
-
     List<Services> getAllServices ();
-
 }

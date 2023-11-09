@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,19 +34,14 @@ public class BillingController {
     }
 
     @GetMapping("/export")
-    public ResponseEntity<Resource> exportCustomers() {
+    public ResponseEntity<Resource> exportCustomersToExcel() {
         List<Billing> billings = billingService.findCustomersWithDiscount();
 
-        String content = billings.stream()
-                .map(customer -> billings.toString())
-                .collect(Collectors.joining(System.lineSeparator()));
-
-        ByteArrayResource resource = new ByteArrayResource(content.getBytes());
-
+        byte[] excelContent = billingService.createExcelFile(billings);
+        ByteArrayResource resource = new ByteArrayResource(excelContent);
         return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=billings.txt")
-                .contentType(MediaType.TEXT_PLAIN)
-                .contentLength(resource.contentLength())
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=billings.xlsx")
+                .contentType(MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"))
                 .body(resource);
     }
-}
+    }

@@ -19,12 +19,16 @@ import { CustomerListComponent } from './components/customer-list/customer-list.
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { TableModule } from 'primeng/table';
 import { CreateContractComponent } from './components/create-contract/create-contract.component';
-import {TreeSelectModule} from 'primeng/treeselect';
+import { TreeSelectModule} from 'primeng/treeselect';
 import { CampaignCreateComponent } from './components/campaign-create/campaign-create.component';
 import { CalendarModule } from 'primeng/calendar';
 import { CampaignListComponent } from './components/campaign-list/campaign-list.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { BillingListComponent } from './components/billing-list/billing-list.component';
+import { UploadFileComponent } from './components/upload-file/upload-file.component';
+import { FileUploadModule } from 'primeng/fileupload';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,8 @@ import { BillingListComponent } from './components/billing-list/billing-list.com
     CreateContractComponent,
     CampaignCreateComponent,
     CampaignListComponent,
-    BillingListComponent
+    BillingListComponent,
+    UploadFileComponent
   ],
   imports: [
     BrowserModule,
@@ -55,9 +60,11 @@ import { BillingListComponent } from './components/billing-list/billing-list.com
     TableModule,
     TreeSelectModule,
     CalendarModule,
-    DropdownModule
+    DropdownModule,
+    FileUploadModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

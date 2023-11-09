@@ -13,7 +13,7 @@
         </div>
         <br>
         <div class="div-center">
-            <p-button label="Buscar" (click)="search()" severity="danger"></p-button>
+            <p-button icon="pi pi-fw pi-search" label="Buscar" (click)="search()" severity="danger"></p-button>
         </div>
     </p-card>
 </div>
@@ -34,7 +34,7 @@
         <tr>
             <td>{{ billing.idBilling }}</td>
             <td>{{ billing.value | number}}$</td>
-            <td>{{ billing.discount | number}}$</td>
+            <td>{{ billing.discount | number}}%</td>
             <td>{{ billing.valueDiscount | number}}$</td>
             <td>{{ billing.discountEndDate | date:'dd/MM/yyyy'}}</td>
         </tr>
@@ -53,6 +53,6 @@
     </label>
 </div>
 <div class="div-center">
-    <p-button label="Generar Reporte total de clientes" (click)="exportCustomers()" severity="danger"></p-button>
+    <p-button icon="pi pi-fw pi-file-export" label="Generar Reporte total de clientes" (click)="exportCustomers()" severity="danger"></p-button>
 </div>
 <br><br><br><br>
