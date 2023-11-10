@@ -2,7 +2,6 @@ package com.PortalTelco.repository.contract;
 
 import com.PortalTelco.dto.CampaignDTOSQL;
 import com.PortalTelco.dto.ContractDTOSQL;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
@@ -14,11 +13,9 @@ import java.util.Map;
 
 @Repository
 public class ContractRepository {
-    @Autowired
+
     JdbcTemplate jdbcTemplate;
-
     SimpleJdbcCall addCustomerServiceCall;
-
 
     public ContractRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;

@@ -16,7 +16,6 @@ public class CampaignRepository {
     JdbcTemplate jdbcTemplate;
     SimpleJdbcCall addCampaignCall;
 
-
     public CampaignRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
         this.addCampaignCall = new SimpleJdbcCall(jdbcTemplate)

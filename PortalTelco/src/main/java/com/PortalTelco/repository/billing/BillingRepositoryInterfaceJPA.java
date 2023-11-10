@@ -11,6 +11,7 @@ public interface BillingRepositoryInterfaceJPA extends JpaRepository<Billing, Lo
     @Query("SELECT b FROM Billing b JOIN Contract c ON b.idBilling = c.idCustomerService WHERE c.fkIdCustomer = :fkIdCustomer")
     List<Billing> findBillingsByFkIdCustomer(@Param("fkIdCustomer") Long fkIdCustomer);
 
+    //Query to generate a report
     @Query("SELECT b FROM Billing b WHERE b.discount <> 0")
     List<Billing> findByDiscountNotZero();
 }

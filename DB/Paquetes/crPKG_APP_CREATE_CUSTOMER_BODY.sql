@@ -22,4 +22,11 @@ CREATE OR REPLACE PACKAGE BODY APP_DISCOUNT_TELCO.PKG_APP_CREATE_CUSTOMER AS
     		raise_application_error(SQLCODE, SQLERRM, TRUE);
 	END create_CUSTOMER;
 /******************************************************************************************/
+
+
+
+/******************************************************************************************/
+   
+   
+   
 END PKG_APP_CREATE_CUSTOMER;

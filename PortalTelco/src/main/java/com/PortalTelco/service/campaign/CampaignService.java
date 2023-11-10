@@ -11,10 +11,11 @@ import java.util.Optional;
 public interface CampaignService {
     //POST
     ResponseEntity<String> createCampaign (@RequestBody CampaignDTOSQL campaignDTOSQL);
-    Optional<Campaign> getCampaignById (Long id);
     //GET BY ID
+    Optional<Campaign> getCampaignById (Long id);
+    //GET BY STATUS
     List<Campaign> getCampaignByStatus (String status);
-    //PUT BY UD
+    //PUT BY ID
     Optional<Campaign> editCampaign (Long id, Campaign campaignDetails);
 
 

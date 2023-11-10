@@ -15,7 +15,6 @@ public class ServicesServiceImp implements ServicesService {
     public ServicesServiceImp(ServicesRepositoryInterfaceJPA servicesRepositoryInterfaceJPA) {
         this.servicesRepositoryInterfaceJPA = servicesRepositoryInterfaceJPA;
     }
-
     @Override
     public List<Services> getAllServices() {
         return this.servicesRepositoryInterfaceJPA.findAll();

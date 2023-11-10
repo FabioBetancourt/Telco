@@ -9,11 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
-//LOMBOK
+//lombok
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-//MODEL
+//model
 @Entity
 @Table(name = "services")
 public class Services {

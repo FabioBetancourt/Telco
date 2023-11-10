@@ -6,6 +6,5 @@ import org.springframework.http.ResponseEntity;
 
 
 public interface ContractService {
-
     ResponseEntity<String> createContract(ContractDTOSQL contractDTOSQL);
 }

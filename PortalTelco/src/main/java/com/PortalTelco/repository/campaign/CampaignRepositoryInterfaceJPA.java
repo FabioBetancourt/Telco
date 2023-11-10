@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface CampaignRepositoryInterfaceJPA extends JpaRepository<Campaign, Long> {
 
+    //Necessary to find a campaign by status
     List<Campaign> findByStatus (String status);
 }

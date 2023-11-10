@@ -6,8 +6,20 @@ CREATE OR REPLACE PACKAGE BODY APP_DISCOUNT_TELCO.PKG_CREATE_CUSTOMER_SERVICES_B
 		v_customer_id CUSTOMER_SERVICES.FK_ID_CUSTOMER%TYPE;
 		v_service_id CUSTOMER_SERVICES.FK_ID_SERVICE%TYPE;
 		v_service_value SERVICES.PRICE%TYPE;
+		v_exists NUMBER;
 	
-		BEGIN
+		BEGIN  
+			-- Verificar si el cliente ya tiene el servicio contratado
+		    SELECT COUNT(*)
+		    INTO v_exists
+		    FROM CUSTOMER_SERVICES
+		    WHERE FK_ID_CUSTOMER = iorc.FK_ID_CUSTOMER
+		    AND FK_ID_SERVICE = iorc.FK_ID_SERVICE;
+		    
+		    IF v_exists > 0 THEN
+		        raise_application_error(-20013, 'El cliente ya tiene contratado este servicio.');
+		    END IF;
+		   
 			--initial values
 			iorc.ID_CUSTOMER_SERVICE := SEQ_ID_CUSTOMER_SERVICE.NEXTVAL;
 			iorc.CONTRACT_DATE := sysdate;

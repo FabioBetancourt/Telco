@@ -18,6 +18,7 @@ public class Customer {
 
     @Id
     @Column(name = "ID_CUSTOMER")
+    //necessary to insert clients by a document by jpa because we use sequence to insert id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq")
     @SequenceGenerator(name = "customer_seq", sequenceName = "SEQ_ID_CUSTOMER", allocationSize = 1)
     private Long idCustomer;
