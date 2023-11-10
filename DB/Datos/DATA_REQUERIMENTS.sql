@@ -15,7 +15,7 @@ BEGIN
       'cliente' || i || '@email.com', -- Correo electrónico
       '+57 98765432', -- Número de teléfono
       'Calle ' || i -- Dirección
-    FROM dual RETURNING ID_CUSTOMER INTO fk_id_customer;
+    FROM dual RETURNING ID_CUSTOMER INTO fk_id_customer
 
     -- Determinar FK_ID_SERVICE y VALUE
     fk_id_service := MOD(i, 4) + 1;

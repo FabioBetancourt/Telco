@@ -11,4 +11,14 @@
     ************************************************************************************/
 
 CREATE INDEX IDX_CUSTOMER_SERVICES_CONTRACT_DATE ON APP_DISCOUNT_TELCO.CUSTOMER_SERVICES(CONTRACT_DATE);
+/************************************************************************************
+    ------------------------------------------------------------------------------------
+    Historial de modificaciones=>
+    Fecha         Orden          Persona                 Acción        
+    ------------------------------------------------------------------------------------
 
+
+    10/11/2023	  TCGB24		 FABIO BETANCOURT		modify because index's name was too long
+    ************************************************************************************/
+
+ALTER INDEX APP_DISCOUNT_TELCO.IDX_CUSTOMER_SERVICES_CONTRACT_DATE RENAME TO IDX_CS_CONTRACT_DATE;
