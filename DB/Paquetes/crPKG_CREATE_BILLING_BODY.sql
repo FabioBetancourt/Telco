@@ -1,6 +1,5 @@
-CREATE OR REPLACE PACKAGE BODY APP_DISCOUNT_TELCO.PKG_CREATE_CUSTOMER_SERVICES_BILLING AS
+CREATE OR REPLACE PACKAGE BODY APP_DISCOUNT_TELCO.PKG_CREATE_BILLING AS
 
-/**********************************************************************************************************************/
 	PROCEDURE insCUSTOMER_SERVICES (iorc IN OUT nocopy tyrcCUSTOMER_SERVICES) IS 
 	
 		v_customer_id CUSTOMER_SERVICES.FK_ID_CUSTOMER%TYPE;
@@ -58,44 +57,4 @@ CREATE OR REPLACE PACKAGE BODY APP_DISCOUNT_TELCO.PKG_CREATE_CUSTOMER_SERVICES_B
 	
 	END insCUSTOMER_SERVICES;
 
-/**********************************************************************************************************************/
-
-	PROCEDURE getBILLING_ID (
-		id_b IN BILLING.ID_BILLING%TYPE,
-		orc OUT nocopy tytbBILLING
-		) 
-	
-	IS
-	
-    v_index BINARY_INTEGER := 1;
-   
-	BEGIN
-    	FOR v_rec IN (SELECT /*+INDEX(BILLING PK_BILLING)*/
-	                    B.ID_BILLING,
-						B.VALUE,
-						B.DISCOUNT,
-						B.VALUE_DISCOUNT,
-						B.DISCOUNT_END_DATE
-                  FROM BILLING B
-                  WHERE /*+PKG_CREATE_CUSTOMER_SERVICES_BILLING.getBILLING_ID*/
-                  ID_BILLING = id_b )
-                  
-                  LOOP
-                  
-        orc(v_index) := v_rec;
-        v_index := v_index + 1;
-        
-    END LOOP;
-   
-	EXCEPTION
-		WHEN NO_DATA_FOUND THEN
-        	raise_application_error(-20008, 'No se encontró una factura con el numero proporcionado.');
-    	WHEN OTHERS THEN
-        	raise_application_error(-20002, 'Ocurrió un error en PKG_CREATE_CUSTOMER_SERVICES_BILLING.getBILLING_ID: ' || SQLERRM);
-        
-	END getBILLING_ID;
-
-/**********************************************************************************************************************/
-
-
-END PKG_CREATE_CUSTOMER_SERVICES_BILLING;
+END PKG_CREATE_BILLING;

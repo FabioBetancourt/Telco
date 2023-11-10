@@ -21,7 +21,7 @@ public class ContractRepository {
         this.jdbcTemplate = jdbcTemplate;
         this.addCustomerServiceCall = new SimpleJdbcCall(jdbcTemplate)
                 .withSchemaName("APP_DISCOUNT_TELCO")
-                .withCatalogName("PKG_APP_CREATE_CUSTOMER_SERVICE")
+                .withCatalogName("PKG_APP_CONTRACT")
                 .withProcedureName("create_CUSTOMER_SERVICE")
                 .declareParameters(
                         new SqlParameter("iCustomerService", Types.STRUCT, "TYRC_CUSTOMER_SERVICES")
