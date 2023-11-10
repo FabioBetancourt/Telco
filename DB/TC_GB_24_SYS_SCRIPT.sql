@@ -9,7 +9,7 @@ ALTER SESSION SET CURRENT_SCHEMA=SYSTEM;
 
 PROMPT --------------CREATING SCHEMA AND GRANTING PRIVILEGES-------------------
 PROMPT crGRANT_RESOURCE.sql
-@Permisos/crGRANT_RESOURCE.sql
+@Permisos\crGRANT_RESOURCE.sql
 PROMPT ---------------------SCHEMA SUCCESSFULLY CREATED---------------------
 
 PROMPT ------------------------------------------------
