@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "ea76f664-031e-46e2-a14b-a6ab41785a8e",
+		"name": "Customer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29663907"
+	},
+	"item": [
+		{
+			"name": "customer by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Response has the required fields\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.idCustomer).to.exist;\r",
+							"    pm.expect(responseData.document).to.exist;\r",
+							"    pm.expect(responseData.firstName).to.exist;\r",
+							"    pm.expect(responseData.lastName).to.exist;\r",
+							"    pm.expect(responseData.email).to.exist;\r",
+							"    pm.expect(responseData.phoneNumber).to.exist;\r",
+							"    pm.expect(responseData.address).to.exist;\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Document is a non-negative integer\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    \r",
+							"    pm.expect(responseData.document).to.be.a('number');\r",
+							"    pm.expect(responseData.document).to.be.at.least(0, \"Document should be a non-negative integer\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Phone number is in a valid format\", function () {\r",
+							"  const responseData = pm.response.json();\r",
+							"\r",
+							"  pm.expect(responseData).to.be.an('object');\r",
+							"  pm.expect(responseData.phoneNumber).to.exist.and.to.match(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/, \"Phone number should be in the format (XXX) XXX-XXXX\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Address is a non-empty string\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"  \r",
+							"    pm.expect(responseData).to.be.an('object');\r",
+							"    pm.expect(responseData.address).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Address should not be empty\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers/find-by-id/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"find-by-id",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer by document",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers/find-by-document/5896554522",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"find-by-document",
+						"5896554522"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit customer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCustomer\": 4,\r\n    \"document\": 1127897551,\r\n    \"firstName\": \"Ana\",\r\n    \"lastName\": \"Ramirez\",\r\n    \"email\": \"fernanda.ramirez@mail.com\",\r\n    \"phoneNumber\": \"+58 6521456784\",\r\n    \"address\": \"calle Estrella 321\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/customers/edit-customer/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"edit-customer",
+						"4"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"document\": 567890123,\r\n    \"firstName\": \"Isabel\",\r\n    \"lastName\": \"Gómez\",\r\n    \"email\": \"Isabel.gomez@example.com\",\r\n    \"phoneNumber\": \"+1 555-567-8901\",\r\n    \"address\": \"Avenida Oeste 456\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customers/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "file upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/1121945495/Downloads/documento_prueba.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/customers/file/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"file",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -10,17 +10,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Slf4j
 @RestController
-@RequestMapping("customer")
+@RequestMapping("customers")
 @CrossOrigin
 public class CustomerController {
 
@@ -41,18 +39,29 @@ public class CustomerController {
 
     @GetMapping("/find-by-id/{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) {
-        return customerService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        try {
+            return customerService.findById(id)
+                    .map(ResponseEntity::ok)
+                    .orElseGet(() -> ResponseEntity.notFound().build());
+        } catch (Exception e){
+            log.error("Error interno del servidor al buscar el cliente con ID: {}", id, e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @GetMapping("/find-by-document/{document}")
     public ResponseEntity<List<Customer>> getCustomerByDocument(@PathVariable Long document) {
-        List<Customer> customers = customerService.findByDocument(document);
-        if(customers.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
+        try {
+            List<Customer> customers = customerService.findByDocument(document);
+            if(customers.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
             return ResponseEntity.ok(customers);
+        }catch (Exception e){
+            log.error("Error interno del servidor al buscar clientes con documento: {}", document, e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+
     }
 
     @PutMapping("/edit-customer/{id}")
@@ -73,10 +82,9 @@ public class CustomerController {
         try {
             customerService.processPlainTextFile(file);
             log.info("Proceso completado para el archivo: {}", file.getOriginalFilename());
-            return ResponseEntity.ok(Map.of("message", "Clientes cargados exitosamente desde archivo de texto plano."));
+            return ResponseEntity.ok(Map.of("message", "Lista de clientes cargada exitosamente en la base de datos."));
         } catch (Exception e) {
             log.error("Error al procesar el archivo: {}", file.getOriginalFilename(), e);
-            e.printStackTrace();
             return ResponseEntity.badRequest().body(Map.of("error", "Error al procesar el archivo: " + e.getMessage()));
         }
     }

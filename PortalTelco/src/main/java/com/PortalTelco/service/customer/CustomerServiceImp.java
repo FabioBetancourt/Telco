@@ -94,7 +94,7 @@ public class CustomerServiceImp implements CustomerService {
                         continue;
                     }
                     Customer customer = parseCustomer(data);
-                    log.info("Cliente procesado: {}", customer.toString());
+                    log.info("Cliente procesado: {}", customer);
                     customers.add(customer);
                 } catch (Exception e) {
                     log.error("Error al procesar la línea: {}", line, e);

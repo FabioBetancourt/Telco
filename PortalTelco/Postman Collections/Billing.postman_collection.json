@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "a9a366a4-8e1f-4309-9026-34012c477830",
+		"name": "Billing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29663907"
+	},
+	"item": [
+		{
+			"name": "Billing by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/billings/22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"billings",
+						"22"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "data file",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

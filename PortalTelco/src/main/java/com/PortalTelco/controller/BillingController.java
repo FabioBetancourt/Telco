@@ -9,9 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("billings")
@@ -44,4 +43,4 @@ public class BillingController {
                 .contentType(MediaType.parseMediaType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"))
                 .body(resource);
     }
-    }
+}

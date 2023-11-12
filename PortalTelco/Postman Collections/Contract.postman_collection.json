@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "18a55534-c2b6-4c28-93aa-088f32fec9cc",
+		"name": "Contract",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29663907"
+	},
+	"item": [
+		{
+			"name": "Contract",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fkIdCustomer\": 5,\r\n    \"fkIdService\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/contract/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contract",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

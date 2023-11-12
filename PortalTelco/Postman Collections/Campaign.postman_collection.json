@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "a63d92e9-972d-45fb-a80a-9c0187c3fb01",
+		"name": "Campaign",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29663907"
+	},
+	"item": [
+		{
+			"name": "Campaign",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numberOfServices\": 1,\r\n    \"customerSeniority\": 3,\r\n    \"discount\": 5,\r\n    \"discountStartDate\": \"2023-10-30\",\r\n    \"discountEndDate\": \"2024-10-30\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/campaign/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"campaign",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "campaign by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/campaign/get-by-id/43",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"campaign",
+						"get-by-id",
+						"43"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "campaign by status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/campaign/get-by-status/activo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"campaign",
+						"get-by-status",
+						"activo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "campaign by id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"numberOfServices\": 3,\r\n    \"customerSeniority\": 4,\r\n    \"discount\": 12,\r\n    \"discountStartDate\": \"2023-10-16T05:00:00.000+00:00\",\r\n    \"discountEndDate\": \"2024-01-16T05:00:00.000+00:00\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/campaign/edit-campaign/43",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"campaign",
+						"edit-campaign",
+						"43"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

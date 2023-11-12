@@ -18,7 +18,7 @@ export class CustomerListComponent {
   showMessage: boolean = false;
 
   search() {
-    let url = 'http://localhost:8080/customer/';
+    let url = 'http://localhost:8080/customers/';
 
     if (this.selectedType === 'Id') {
       url += `find-by-id/${this.inputValue}`;

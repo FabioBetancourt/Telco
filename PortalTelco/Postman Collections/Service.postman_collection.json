@@ -1,0 +1,30 @@
+{
+	"info": {
+		"_postman_id": "e64fd650-7228-4dde-8aea-0766a53ac164",
+		"name": "Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29663907"
+	},
+	"item": [
+		{
+			"name": "Services",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/services/get-all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"services",
+						"get-all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
