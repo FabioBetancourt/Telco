@@ -7,7 +7,7 @@ BEGIN
   FOR i IN 1..10000 LOOP
     -- Insertar cliente
     INSERT INTO APP_DISCOUNT_TELCO.CUSTOMER (ID_CUSTOMER, DOCUMENT, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, ADDRESS) 
-    SELECT 
+    VALUES (
       SEQ_ID_CUSTOMER.NEXTVAL, -- ID de cliente generado automáticamente
       1000000 + i, -- Número de documento
       'Cliente', -- Nombre
@@ -15,11 +15,11 @@ BEGIN
       'cliente' || i || '@email.com', -- Correo electrónico
       '+57 98765432', -- Número de teléfono
       'Calle ' || i -- Dirección
-    FROM dual RETURNING ID_CUSTOMER INTO fk_id_customer;
+    ) RETURNING ID_CUSTOMER INTO fk_id_customer;
 
     -- Determinar FK_ID_SERVICE y VALUE
     fk_id_service := MOD(i, 4) + 1;
-    id_customer_service := SEQ_CUSTOMER_SERVICE.NEXTVAL;
+    id_customer_service := SEQ_ID_CUSTOMER_SERVICE.NEXTVAL; -- Corrección aquí
 
     -- Insertar servicio contratado para el cliente
     INSERT INTO APP_DISCOUNT_TELCO.CUSTOMER_SERVICES (ID_CUSTOMER_SERVICE, FK_ID_CUSTOMER, FK_ID_SERVICE, CONTRACT_DATE) 

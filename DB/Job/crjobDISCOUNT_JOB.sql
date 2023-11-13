@@ -21,7 +21,7 @@ BEGIN
                           COMMIT;
                         END;',
     start_date      => SYSTIMESTAMP,
-    repeat_interval => 'FREQ=MONTHLY; INTERVAL=3',
+    repeat_interval => 'FREQ=MINUTELY; INTERVAL=5', --FREQ=MONTHLY; INTERVAL=3'
     end_date        => NULL,
     enabled         => TRUE,
     comments        => 'Job to apply and reset discounts every three months.'
