@@ -82,7 +82,7 @@ public class CustomerServiceImp implements CustomerService {
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
             String line = reader.readLine();
-            if (line == null || !line.contains("DOCUMENTO")) {
+            if (line == null || !line.contains("DOCUMENT")) {
                 log.error("Encabezado incorrecto en el archivo: {}", file.getOriginalFilename());
                 throw new IllegalArgumentException("El archivo no tiene el encabezado correcto.");
             }

@@ -18,8 +18,8 @@ export class CampaignListComponent {
 
   constructor(private http: HttpClient) {
     this.statusOptions = [
-      { label: 'Activo', value: 'Activo' },
-      { label: 'Inactivo', value: 'Inactivo' },
+      { label: 'Activo', value: 'activo' },
+      { label: 'Inactivo', value: 'inactivo' },
     ];
   }
 

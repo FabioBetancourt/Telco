@@ -15,8 +15,12 @@ export class UploadFileComponent {
   constructor(private http: HttpClient) {}
 
   onFileSelect(event: any): void {
-    this.selectedFile = event.target.files[0];
+    if (event.files && event.files.length > 0) {
+      this.selectedFile = event.files[0];
+      console.log('Archivo seleccionado:', this.selectedFile);
+    }
   }
+  
 
   upload(): void {
     if (this.selectedFile) {
@@ -24,7 +28,7 @@ export class UploadFileComponent {
       formData.append('file', this.selectedFile, this.selectedFile.name);
 
       this.http
-        .post('http://localhost:8080/customer/file/upload', formData)
+        .post('http://localhost:8080/customers/file/upload', formData)
         .subscribe({
           next: (response) => {
             console.log(response);
